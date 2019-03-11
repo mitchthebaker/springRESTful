@@ -1,0 +1,54 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.5.RELEASE")
+    }
+}
+
+apply plugin: 'application'
+apply plugin: 'groovy'
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+bootJar {
+    baseName = 'gs-rest-service'
+    version = '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+//mainClassName = 'hello.HelloWorld'
+version '1.0'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    /**
+     * compile dependency: indicates that it should be available
+     * during compile-time
+     *
+     * providedCompile: Required dependencies for compiling the project code,
+     * but that will be provided at runtime by a container running the code
+     * (for example, the Java Servlet API).
+     *
+     * testCompile: Dependencies used for compiling and running tests,
+     * but not required for building or running the project’s runtime code.
+     */
+    //compile 'joda-time:joda-time:2.2'
+    //testCompile "junit:junit:4.12"
+    compile("org.springframework.boot:spring-boot-starter-web")
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+jar {
+    baseName = 'gs-gradle'
+    version = '0.1.0'
+}
